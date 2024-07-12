@@ -1,11 +1,9 @@
-import "./index.css";
+type Props = {
+  children: React.ReactNode;
+};
 
-function App() {
-  return (
-    <>
-      <h2>Hello Teact</h2>
-    </>
-  );
+function AppLayout({ children }: Props) {
+  return <div>{children}</div>;
 }
 
-export default App;
+export default AppLayout;

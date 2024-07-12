@@ -1,0 +1,71 @@
+.homepage {
+  height: calc(100vh - 2rem);
+  margin: 1rem;
+  background-image: linear-gradient(rgba(12, 12, 12, 0.9),
+      rgba(36, 42, 46, 0.8)),
+    url("../canada.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 2.5rem 5rem;
+}
+
+.homepage section {
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  text-align: center;
+}
+
+.homepage h1 {
+  font-size: 4.5rem;
+  line-height: 1.3;
+  font-weight: 800;
+}
+
+.homepage h2 {
+  width: 100%;
+  font-size: 1.9rem;
+  color: var(--color-light--1);
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+  font-weight: 500;
+}
+
+.not_found {
+  background-image: linear-gradient(rgba(12, 12, 12, 0.9),
+      rgba(36, 42, 46, 0.8)),
+    url("../found.jpg");
+  height: calc(100vh - 2rem);
+  margin: 1rem;
+  background-size: cover;
+  background-position: 30% 70%;
+}
+
+.not_found div {
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 10em;
+  line-height: 1;
+}
+
+p {
+  font-size: 2em;
+}
+
+.not_found a {
+  font-size: 2em;
+  color: var(--color-brand--1);
+  text-decoration: none;
+
+}
