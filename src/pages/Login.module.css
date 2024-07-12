@@ -24,3 +24,14 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+
+.cta {
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--0);
+  padding: 0.5rem 2.5rem;
+  border-radius: 7px;
+  font-size: 1.7rem;
+  font-weight: 500;
+
+  border: none;
+}
