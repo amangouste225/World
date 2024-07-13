@@ -33,7 +33,7 @@ export default function Login() {
         </div>
 
         <div>
-          <button className={styles.cta}>Login</button>
+          <button className={styles.cta} onClick={<Login />}>Login</button>
         </div>
       </form>
     </main>
