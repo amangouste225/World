@@ -11,14 +11,9 @@ export default function CountriesList({ cities, isLoading }: CitiesProps) {
       <Message message="Add your first city by clicking on a city on the map" />
     );
 
-  const countries = cities.reduce((acc, city) => {
-    if (!acc.map((el) => el.country).includes(city.country))
-      return [...acc, { country: city.country, emoji: city.city }];
-    else return acc;
-  }, []);
   return (
     <ul className={styles.countryList}>
-      {countries.map((country, index) => (
+      {cities.map((country, index) => (
         <CountryItem country={country} key={index} />
       ))}
     </ul>
