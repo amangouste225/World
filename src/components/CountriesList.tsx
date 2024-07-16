@@ -11,9 +11,13 @@ export default function CountriesList({ cities, isLoading }: CitiesProps) {
       <Message message="Add your first city by clicking on a city on the map" />
     );
 
+  const country = cities.filter(
+    (obj, index, el) => index === el.findIndex((t) => t.country === obj.country)
+  );
+
   return (
     <ul className={styles.countryList}>
-      {cities.map((country, index) => (
+      {country.map((country, index) => (
         <CountryItem country={country} key={index} />
       ))}
     </ul>

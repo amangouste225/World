@@ -3,9 +3,14 @@ export type Cities = {
   country: "string";
   emoji: "string";
   date: "string";
-  note: "string";
+  notes: "string";
   id: number;
   city: string;
+  countryName: string;
+  position: {
+    lat: number;
+    lng: number;
+  };
 };
 
 export type CitiesProps = {

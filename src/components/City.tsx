@@ -1,23 +1,22 @@
+// import { useParams } from "react-router-dom";
 import styles from "./City.module.css";
+import {} from "../lib/types";
+import { useParams } from "react-router-dom";
 
-const formatDate = (date) =>
-  new Intl.DateTimeFormat("en", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    weekday: "long",
-  }).format(new Date(date));
+const options = {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  weekday: "long",
+};
+const formatDate = (date: string) =>
+  new Intl.DateTimeFormat("en", options).format(new Date(date));
 
 function City() {
-  // TEMP DATA
-  const currentCity = {
-    cityName: "Lisbon",
-    emoji: "🇵🇹",
-    date: "2027-10-31T15:59:59.138Z",
-    notes: "My favorite city so far!",
-  };
+  const params = useParams();
+  console.log(params);
 
-  const { cityName, emoji, date, notes } = currentCity;
+  const { emoji, notes, cityName, date } = params;
 
   return (
     <div className={styles.city}>
@@ -43,17 +42,17 @@ function City() {
       <div className={styles.row}>
         <h6>Learn more</h6>
         <a
-          href={`https://en.wikipedia.org/wiki/${cityName}`}
+          href={`https://www.google.com/search?q=${cityName}`}
           target="_blank"
           rel="noreferrer"
         >
-          Check out {cityName} on Wikipedia &rarr;
+          Check out {cityName} on Google &rarr;
         </a>
       </div>
 
-      <div>
+      {/* <div>
         <ButtonBack />
-      </div>
+      </div> */}
     </div>
   );
 }
