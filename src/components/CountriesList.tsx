@@ -4,12 +4,12 @@ import styles from "./CountryList.module.css";
 import CountryItem from "./CountryItem";
 import Message from "./Message";
 import Spinner from "./Spinner";
-import { useContext } from "react";
 
 import { TCitiesContext } from "../lib/types";
-import { MyContext } from "../context/CitiesContext";
+import { useCities } from "../context/CitiesContext";
+
 export default function CountriesList() {
-  const { cities, isLoading } = useContext(MyContext) as TCitiesContext;
+  const { cities, isLoading } = useCities() as TCitiesContext;
   if (isLoading) return <Spinner />;
   if (!cities.length)
     return (

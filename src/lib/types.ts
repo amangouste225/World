@@ -16,6 +16,15 @@ export type TCities = {
 export type TCitiesContext = {
   cities: TCities[];
   isLoading?: boolean;
+  getCity: (id: string) => void;
+  currentCity: {
+    cityName: string;
+    country: string;
+    emoji: string;
+    notes: string;
+    date: string;
+    id: number;
+  };
 };
 
 export type MessageProps = {

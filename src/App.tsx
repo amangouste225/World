@@ -11,7 +11,7 @@ import CityList from "./components/CityList";
 import CountriesList from "./components/CountriesList";
 import City from "./components/City";
 import Form from "./components/Form";
-import CitiesContext from "./context/CitiesContext";
+import { CitiesContext } from "./context/CitiesContext";
 
 export default function App() {
   return (
