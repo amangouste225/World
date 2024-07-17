@@ -1,9 +1,9 @@
-export type Cities = {
-  cityName: "string";
-  country: "string";
-  emoji: "string";
-  date: "string";
-  notes: "string";
+export type TCities = {
+  cityName: string;
+  country: string;
+  emoji: string;
+  date: string;
+  notes: string;
   id: number;
   city: string;
   countryName: string;
@@ -13,11 +13,15 @@ export type Cities = {
   };
 };
 
-export type CitiesProps = {
-  cities: Cities[];
+export type TCitiesContext = {
+  cities: TCities[];
   isLoading?: boolean;
 };
 
 export type MessageProps = {
   message: string;
+};
+
+export type CitiesProviderContext = {
+  children: React.ReactNode;
 };

@@ -1,7 +1,7 @@
-import { Cities } from "../lib/types";
+import { TCities } from "../lib/types";
 import styles from "./CountryItem.module.css";
 
-function CountryItem({ country }: { country: Cities }) {
+function CountryItem({ country }: { country: TCities }) {
   return (
     <li className={styles.countryItem}>
       <span>{country.emoji}</span>

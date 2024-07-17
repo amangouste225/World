@@ -14,8 +14,6 @@ const formatDate = (date: string) =>
 
 function City() {
   const params = useParams();
-  console.log(params);
-
   const { emoji, notes, cityName, date } = params;
 
   return (
