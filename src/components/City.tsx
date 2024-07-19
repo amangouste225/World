@@ -4,6 +4,7 @@ import { TCitiesContext } from "../lib/types";
 import { useParams } from "react-router-dom";
 import { useCities } from "../context/CitiesContext";
 import { useEffect } from "react";
+import ButtonBack from "./ButtonBack";
 
 const options = {
   day: "numeric",
@@ -58,9 +59,9 @@ function City() {
         </a>
       </div>
 
-      {/* <div>
+      <div>
         <ButtonBack />
-      </div> */}
+      </div>
     </div>
   );
 }
