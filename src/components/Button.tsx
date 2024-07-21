@@ -3,7 +3,7 @@ import styles from "./Button.module.css";
 type ButtonProps = {
   children: React.ReactNode;
   onclick: (e: React.SyntheticEvent<EventTarget>) => void;
-  type: "primary" | "back";
+  type: "primary" | "back" | "position";
 };
 
 export default function Button({ children, onclick, type }: ButtonProps) {

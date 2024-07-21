@@ -39,24 +39,24 @@
     {
       "cityName": "Abidjan",
       "country": "Cote d'Ivoire",
-      "emoji": "🇵🇹",
+      "emoji": "cv",
       "date": "2027-10-31T15:59:59.138Z",
       "notes": "My favorite city so far!",
       "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
+        "lat": 5.345317,
+        "lng": -4.024429
       },
-      "id": 7385
+      "id": 73855
     },
     {
       "cityName": "Bouaké",
       "country": "Cote d'Ivoire",
-      "emoji": "🇵🇹",
+      "emoji": "cv",
       "date": "2027-10-31T15:59:59.138Z",
       "notes": "My favorite city so far!",
       "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
+        "lat": 7.683333,
+        "lng": -5.016667
       },
       "id": 222392
     }
