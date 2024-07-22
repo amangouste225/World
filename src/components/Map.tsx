@@ -24,18 +24,27 @@ export default function Map() {
 
   const [mapPosition, setMapPosition] = useState([51.505, -0.09]);
 
-  const { getPosition, position: geoLocationPosition } = Geolocation();
-
-  console.log(getPosition, geoLocationPosition);
+  const {
+    getPosition,
+    position: geoLocationPosition,
+    isLoading,
+  } = Geolocation();
 
   useEffect(() => {
     if (lat && lng) setMapPosition([lat, lng]);
   }, [lng, lat]);
+
+  useEffect(() => {
+    if (geoLocationPosition)
+      setMapPosition([geoLocationPosition.lat, geoLocationPosition.lng]);
+  }, [geoLocationPosition]);
   return (
     <div className={styles.mapContainer}>
-      <Button type="position" onclick={getPosition}>
-        Get my location
-      </Button>
+      {!geoLocationPosition && (
+        <Button type="position" onclick={getPosition}>
+          {isLoading ? "Loading..." : "Use my position"}
+        </Button>
+      )}
       <MapContainer
         center={mapPosition}
         zoom={16}

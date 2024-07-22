@@ -1,13 +1,17 @@
 import { useNavigate } from "react-router-dom";
-import styles from "./Button.module.css";
+import Button from "./Button";
 
 export default function ButtonBack() {
   const navigate = useNavigate();
   return (
-    <div className={styles.back}>
-      <button className={styles.btn} onClick={() => navigate(-1)}>
-        Back
-      </button>
-    </div>
+    <Button
+      onclick={(e) => {
+        e.preventDefault();
+        navigate(-1);
+      }}
+      type="back"
+    >
+      &larr; Back
+    </Button>
   );
 }

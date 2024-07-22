@@ -11,8 +11,6 @@ const formatDate = (dater: string) =>
 export default function CityItem({ city }: { city: TCities }) {
   const { currentCity } = useCities() as TCitiesContext;
 
-  console.log(city.id, currentCity.id);
-
   return (
     <li>
       <Link
