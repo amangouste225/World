@@ -12,6 +12,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useCities } from "../context/CitiesContext";
 import { TCitiesContext } from "../lib/types";
+import { useNavigate } from "react-router-dom";
 
 function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -33,6 +34,7 @@ function Form() {
 
   const { lat, lng } = useUrlPosition();
   const { createCity } = useCities() as TCitiesContext;
+  const navigate = useNavigate();
   useEffect(() => {
     if (!lat && !lng) return;
 
@@ -79,7 +81,9 @@ function Form() {
       position: { lat, lng },
     };
     createCity(newCity);
+    navigate("/app/cities");
   };
+
   return (
     <form className={styles.form}>
       <div className={styles.row}>

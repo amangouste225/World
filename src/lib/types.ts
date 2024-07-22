@@ -25,6 +25,8 @@ export type TCitiesContext = {
     date: string;
     id: number;
   };
+  createCity: (newCity) => void;
+  deleteCity: (id: number) => void;
 };
 
 export type MessageProps = {

@@ -9,8 +9,11 @@ const formatDate = (dater: string) =>
   new Intl.DateTimeFormat("en-US", options).format(new Date(dater));
 
 export default function CityItem({ city }: { city: TCities }) {
-  const { currentCity } = useCities() as TCitiesContext;
-
+  const { currentCity, deleteCity } = useCities() as TCitiesContext;
+  const delCity = (e) => {
+    e.preventDefault();
+    deleteCity(city.id);
+  };
   return (
     <li>
       <Link
@@ -22,7 +25,9 @@ export default function CityItem({ city }: { city: TCities }) {
         <span className={styles.emoji}>{city.cityName} </span>
         <h3 className={styles.name}>{city.countryName}</h3>
         <time className={styles.date}>{formatDate(city.date)}</time>
-        <button className={styles.deleteBtn}>&times;</button>
+        <button className={styles.deleteBtn} onClick={delCity}>
+          &times;
+        </button>
       </Link>
     </li>
   );
