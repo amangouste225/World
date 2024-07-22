@@ -6,7 +6,6 @@ export default function PageNav() {
   const menu = [
     { name: "List your travel", link: "/product" },
     { name: "Support", link: "/pricing" },
-    { name: "App", link: "/app" },
     { name: "Sign in", link: "/login" },
   ];
   return (

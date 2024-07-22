@@ -21,11 +21,9 @@ function City() {
 
   useEffect(() => {
     getCity(id);
-  }, [id]);
+  }, [id, getCity]);
 
   const { emoji, notes, cityName, date } = currentCity;
-
-  console.log(currentCity, id);
 
   return (
     <div className={styles.city}>

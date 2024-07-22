@@ -8,6 +8,10 @@ import ButtonBack from "./ButtonBack";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import Message from "./Message";
 import Spinner from "./Spinner";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useCities } from "../context/CitiesContext";
+import { TCitiesContext } from "../lib/types";
 
 function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -28,8 +32,10 @@ function Form() {
   const [geoError, setGeoError] = useState(null);
 
   const { lat, lng } = useUrlPosition();
-
+  const { createCity } = useCities() as TCitiesContext;
   useEffect(() => {
+    if (!lat && !lng) return;
+
     const fetchCityData = async () => {
       try {
         SetLoading(true);
@@ -44,7 +50,6 @@ function Form() {
         setCityName(data.city || data.locality || "");
         setCountry(data.countryName);
         setEmoji(convertToEmoji(data.countryCode));
-        console.log(data);
       } catch (error) {
         setGeoError(error.message);
       } finally {
@@ -56,8 +61,25 @@ function Form() {
   }, [lat, lng]);
 
   if (Loading) return <Spinner />;
+  if (!lat && !lng)
+    return <Message message="Start by clicking somewhere on the map" />;
+
   if (geoError) return <Message message={geoError} />;
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!cityName || !date) return;
+
+    const newCity = {
+      cityName,
+      emoji,
+      date,
+      notes,
+      position: { lat, lng },
+    };
+    createCity(newCity);
+  };
   return (
     <form className={styles.form}>
       <div className={styles.row}>
@@ -72,10 +94,12 @@ function Form() {
 
       <div className={styles.row}>
         <label htmlFor="date">When did you go to {cityName}?</label>
-        <input
+
+        <DatePicker
           id="date"
-          onChange={(e) => setDate(e.target.value)}
-          value={date}
+          selected={date}
+          onChange={(date) => setDate(date)}
+          dateFormat="dd/MM/yyyy"
         />
       </div>
 
@@ -92,6 +116,7 @@ function Form() {
         <Button
           onclick={(e) => {
             e.preventDefault();
+            handleSubmit(e);
           }}
           type="primary"
         >
