@@ -15,13 +15,10 @@ import { useCities } from "../context/CitiesContext";
 import { TCitiesContext } from "../lib/types";
 import { Geolocation } from "../hooks/useGeolocation";
 import Button from "./Button";
+import { useUrlPosition } from "../hooks/useUrlPosition";
 
 export default function Map() {
-  const [searchParams] = useSearchParams();
   const { cities } = useCities() as TCitiesContext;
-  const lat: number = searchParams.get("lat");
-  const lng: number = searchParams.get("lng");
-
   const [mapPosition, setMapPosition] = useState([51.505, -0.09]);
 
   const {
@@ -29,6 +26,7 @@ export default function Map() {
     position: geoLocationPosition,
     isLoading,
   } = Geolocation();
+  const { lat, lng } = useUrlPosition();
 
   useEffect(() => {
     if (lat && lng) setMapPosition([lat, lng]);
