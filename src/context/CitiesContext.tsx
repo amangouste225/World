@@ -10,6 +10,7 @@ type Actions = {
     | "city/created"
     | "loading"
     | "rejected";
+
   payload: any;
 };
 
