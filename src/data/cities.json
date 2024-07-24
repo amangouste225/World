@@ -54,6 +54,120 @@
         "lng": "-2.3730468750000004"
       },
       "id": 5
+    },
+    {
+      "cityName": "London",
+      "emoji": "🇬🇧",
+      "date": "2024-07-23T22:40:56.329Z",
+      "notes": "",
+      "position": {
+        "lat": "51.505456972844144",
+        "lng": "-0.09535789489746095"
+      },
+      "id": 6
+    },
+    {
+      "cityName": "Rivarennes",
+      "emoji": "🇫🇷",
+      "date": "2024-07-23T22:46:45.854Z",
+      "notes": "I love this city",
+      "position": {
+        "lat": "46.58906908309185",
+        "lng": "1.3623046875000002"
+      },
+      "id": 7
+    },
+    {
+      "cityName": "Abidjan",
+      "emoji": "🇨🇮",
+      "date": "2024-07-23T22:47:20.943Z",
+      "notes": "My city",
+      "position": {
+        "lat": "5.391804573239835",
+        "lng": "-4.070434570312501"
+      },
+      "id": 8
+    },
+    {
+      "cityName": "Abidjan",
+      "emoji": "🇨🇮",
+      "date": "2024-07-23T22:50:16.279Z",
+      "notes": "thankd",
+      "position": {
+        "lat": "5.364459662948655",
+        "lng": "-4.042968750000001"
+      },
+      "id": 9
+    },
+    {
+      "cityName": "Somanya",
+      "emoji": "🇬🇭",
+      "date": "2024-07-23T22:50:35.392Z",
+      "notes": "",
+      "position": {
+        "lat": "6.140554782450308",
+        "lng": "-0.18676757812500003"
+      },
+      "id": 10
+    },
+    {
+      "cityName": "Akwatia",
+      "emoji": "🇬🇭",
+      "date": "2024-07-23T22:51:27.160Z",
+      "notes": "",
+      "position": {
+        "lat": "6.0203850824560226",
+        "lng": "-0.9008789062500001"
+      },
+      "id": 11
+    },
+    {
+      "cityName": "San Jose",
+      "emoji": "🇺🇸",
+      "date": "2024-07-24T00:10:12.555Z",
+      "notes": "",
+      "country": "United States of America (the)",
+      "position": {
+        "lat": "37.38625355900476",
+        "lng": "-122.0837688446045"
+      },
+      "id": 12
+    },
+    {
+      "cityName": "Mumbai",
+      "emoji": "🇮🇳",
+      "date": "2024-07-24T00:10:37.237Z",
+      "notes": "",
+      "country": "India",
+      "position": {
+        "lat": "19.078504155322868",
+        "lng": "72.87840843200685"
+      },
+      "id": 13
+    },
+    {
+      "cityName": "Mumbai",
+      "emoji": "🇮🇳",
+      "date": "2024-07-20T00:10:43.000Z",
+      "notes": "",
+      "country": "India",
+      "position": {
+        "lat": "19.08483109394317",
+        "lng": "72.85463333129884"
+      },
+      "id": 14
+    },
+    {
+      "cityName": "San Francisco",
+      "emoji": "🇺🇸",
+      "date": "2024-07-28T00:11:03.000Z",
+      "notes": "",
+      "country": "United States of America (the)",
+      "position": {
+        "lat": "37.778584505321405",
+        "lng": "-122.41910934448244"
+      },
+      "id": 15
     }
   ]
 }

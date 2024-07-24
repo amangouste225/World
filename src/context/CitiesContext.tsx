@@ -6,8 +6,8 @@ export const MyContext = createContext<TCitiesContext | null>(null);
 type Actions = {
   type:
     | "cities/loaded"
-    | "cities/deleted"
-    | "cities/created"
+    | "city/deleted"
+    | "city/created"
     | "loading"
     | "rejected";
   payload: any;
@@ -16,7 +16,7 @@ type Actions = {
 type StateProps = {
   isisLoading: boolean;
   cities: TCities[];
-  currentCity: any;
+  currentCity: TCitiesContext;
   error: string;
 };
 
@@ -32,14 +32,14 @@ function reducer(state: StateProps, action: Actions) {
         currentCity: action.payload,
       };
 
-    case "cities/created":
+    case "city/created":
       return {
         ...state,
         isLoading: false,
         cities: [...state.cities, action.payload],
         currentCity: action.payload,
       };
-    case "cities/deleted":
+    case "city/deleted":
       return {
         ...state,
         isLoading: false,
@@ -114,7 +114,7 @@ function CitiesContext({ children }: CitiesProviderContext) {
         },
       });
       const data = await res.json();
-      dispatch({ type: "cities/created", payload: data });
+      dispatch({ type: "city/created", payload: data });
     } catch {
       dispatch({
         type: "rejected",
@@ -129,7 +129,7 @@ function CitiesContext({ children }: CitiesProviderContext) {
       await fetch(`http://localhost:8000/cities/${id}`, {
         method: "DELETE",
       });
-      dispatch({ type: "cities/deleted", payload: id });
+      dispatch({ type: "city/deleted", payload: id });
     } catch {
       dispatch({
         type: "rejected",

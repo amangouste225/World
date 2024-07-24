@@ -33,6 +33,7 @@ function Form() {
   const [geoError, setGeoError] = useState(null);
 
   const { lat, lng } = useUrlPosition();
+
   const { createCity } = useCities() as TCitiesContext;
   const navigate = useNavigate();
   useEffect(() => {
@@ -78,6 +79,7 @@ function Form() {
       emoji,
       date,
       notes,
+      country,
       position: { lat, lng },
     };
     createCity(newCity);

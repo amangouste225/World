@@ -17,8 +17,10 @@ export default function CountriesList() {
     );
 
   const country = cities.filter(
-    (obj, index, el) => index === el.findIndex((t) => t.country === obj.country)
+    (obj, index, el) => index === el.findIndex((t) => t.emoji === obj.emoji)
   );
+
+  console.log(country, cities);
 
   return (
     <ul className={styles.countryList}>

@@ -1,27 +1,29 @@
 import { useState } from "react";
 
-// define the function that finds the users geolocation
-function Geolocation(defaultPosition = null) {
-  const [position, setPosition] = useState(defaultPosition);
+export default function useGeolocation() {
+  const [userLocation, setuserLocation] = useState<{
+    latitude: number;
+    longitude: number;
+  } | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  function getPosition() {
+  const getPosition = () => {
     if (!navigator.geolocation)
-      return setError("Geolocation is not supported by this browser.");
+      return setError("Geo-location is not supported by your browser.");
 
     setIsLoading(true);
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        setPosition({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+        const { latitude, longitude } = pos.coords;
+        setuserLocation({ latitude, longitude });
       },
       (error) => {
         setError(error.message);
         setIsLoading(false);
       }
     );
-  }
-  return { getPosition, position, isLoading, error };
-}
+  };
 
-export { Geolocation };
+  return { getPosition, userLocation, isLoading, error };
+}

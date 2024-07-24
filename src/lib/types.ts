@@ -25,7 +25,7 @@ export type TCitiesContext = {
     date: string;
     id: number;
   };
-  createCity: (newCity) => void;
+  createCity: (newCity?: TCities) => void;
   deleteCity: (id: number) => void;
 };
 

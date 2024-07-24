@@ -7,42 +7,42 @@ import {
   useMapEvents,
 } from "react-leaflet";
 
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import styles from "./Map.module.css";
 import { useEffect, useState } from "react";
 import { useCities } from "../context/CitiesContext";
 import { TCitiesContext } from "../lib/types";
-import { Geolocation } from "../hooks/useGeolocation";
+
 import Button from "./Button";
 import { useUrlPosition } from "../hooks/useUrlPosition";
+import useGeolocation from "../hooks/useGeolocation";
 
 export default function Map() {
   const { cities } = useCities() as TCitiesContext;
-  const [mapPosition, setMapPosition] = useState([51.505, -0.09]);
+  const [mapPosition, setMapPosition] = useState([
+    5.391804573239835, -4.070434570312501,
+  ]);
 
-  const {
-    getPosition,
-    position: geoLocationPosition,
-    isLoading,
-  } = Geolocation();
+  const { getPosition, userLocation, isLoading } = useGeolocation();
+
   const { lat, lng } = useUrlPosition();
+
+  useEffect(() => {
+    if (userLocation)
+      setMapPosition([userLocation.latitude, userLocation.longitude]);
+  }, [userLocation]);
 
   useEffect(() => {
     if (lat && lng) setMapPosition([lat, lng]);
   }, [lng, lat]);
 
-  useEffect(() => {
-    if (geoLocationPosition)
-      setMapPosition([geoLocationPosition.lat, geoLocationPosition.lng]);
-  }, [geoLocationPosition]);
   return (
     <div className={styles.mapContainer}>
-      {!geoLocationPosition && (
-        <Button type="position" onclick={getPosition}>
-          {isLoading ? "Loading..." : "Use my position"}
-        </Button>
-      )}
+      <Button type="position" onclick={getPosition}>
+        {isLoading ? "Loading..." : "Use my position"}
+      </Button>
+
       <MapContainer
         center={mapPosition}
         zoom={16}
@@ -80,7 +80,6 @@ function DetectClick() {
   const navigate = useNavigate();
   useMapEvents({
     click: (e) => {
-      console.log(e);
       navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
     },
   });
