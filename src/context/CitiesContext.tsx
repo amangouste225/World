@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { CitiesProviderContext, TCities, TCitiesContext } from "../lib/types";
+import { TCities, TCitiesContext } from "../lib/types";
 
 export const MyContext = createContext<TCitiesContext | null>(null);
 
@@ -65,7 +65,7 @@ const initial = {
   error: "",
 };
 
-function CitiesContext({ children }: CitiesProviderContext) {
+function CitiesContext({ children }: TChildrenProps) {
   const [{ cities, isLoading, currentCity, error }, dispatch] = useReducer(
     reducer,
     initial

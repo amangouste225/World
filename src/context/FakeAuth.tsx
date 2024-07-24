@@ -1,6 +1,7 @@
 import { createContext, useContext, useReducer } from "react";
+import { TChildrenProps } from "../lib/types";
 
-const AuthContext = createContext<UserProps | null>(null);
+const AuthContext = createContext<StateProps | null>(null);
 
 const initialState = {
   user: null,
@@ -13,9 +14,10 @@ type ActionsType = {
 };
 
 type StateProps = {
-  initialState: boolean;
-  user: UserProps[] | null;
+  user: UserProps;
   login: (email: string, password: string) => void;
+  logout: () => void;
+  isAuthenticated: boolean;
 };
 
 type UserProps = {
@@ -23,10 +25,6 @@ type UserProps = {
   email: string;
   password: string;
   avatar: string;
-};
-
-type UserContext = {
-  children: React.ReactNode;
 };
 
 const reducer = (state: StateProps, action: ActionsType) => {
@@ -49,13 +47,13 @@ const FAKE_USER = {
   avatar: "https://i.pravatar.cc/100?u=zz",
 };
 
-function AuthProvider({ children }: UserContext) {
+function AuthProvider({ children }: TChildrenProps) {
   const [{ user, isAuthenticated }, dispatch] = useReducer(
     reducer,
     initialState
   );
 
-  function login(email, password) {
+  function login(email: string, password: string) {
     if (email === FAKE_USER.email && password === FAKE_USER.password)
       dispatch({ type: "login", payload: FAKE_USER });
   }

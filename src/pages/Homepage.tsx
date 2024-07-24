@@ -20,7 +20,7 @@ export default function Homepage() {
           you have wandered the world.
         </h2>
 
-        <Button type="primary" onclick={() => navigate("App")}>
+        <Button type="primary" onclick={() => navigate("login")}>
           Start tracking now
         </Button>
       </section>

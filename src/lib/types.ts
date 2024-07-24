@@ -33,6 +33,6 @@ export type MessageProps = {
   message: string;
 };
 
-export type CitiesProviderContext = {
+export type TChildrenProps = {
   children: React.ReactNode;
 };
