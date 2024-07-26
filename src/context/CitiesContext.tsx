@@ -1,7 +1,14 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
-import { TCities, TCitiesContext } from "../lib/types";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useReducer,
+} from "react";
+import { TChildrenProps, TCities, TCitiesContext } from "../lib/types";
 
-export const MyContext = createContext<TCitiesContext | null>(null);
+const MyContext = createContext<TCitiesContext | null>(null);
 
 type Actions = {
   type:
@@ -88,21 +95,24 @@ function CitiesContext({ children }: TChildrenProps) {
     fetchCities();
   }, []);
 
-  async function getCity(id: number) {
-    if (Number(id) === currentCity.id) return;
+  const getCity = useCallback(
+    async function getCity(id: number) {
+      if (Number(id) === currentCity.id) return;
 
-    dispatch({ type: "loading" });
-    try {
-      const res = await fetch(`http://localhost:8000/cities/${id}`);
-      const data = await res.json();
-      dispatch({ type: "cities/loaded", payload: data });
-    } catch {
-      dispatch({
-        type: "error",
-        payload: "There was an error loading city...",
-      });
-    }
-  }
+      dispatch({ type: "loading" });
+      try {
+        const res = await fetch(`http://localhost:8000/cities/${id}`);
+        const data = await res.json();
+        dispatch({ type: "cities/loaded", payload: data });
+      } catch {
+        dispatch({
+          type: "error",
+          payload: "There was an error loading city...",
+        });
+      }
+    },
+    [currentCity.id]
+  );
 
   async function createCity(newCity: string) {
     dispatch({ type: "loading" });

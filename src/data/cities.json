@@ -180,6 +180,102 @@
         "lng": "-3.9961051940917973"
       },
       "id": 16
+    },
+    {
+      "cityName": "Abidjan",
+      "emoji": "🇨🇮",
+      "date": "2024-07-26T13:21:20.123Z",
+      "notes": "",
+      "country": "Cote d'Ivoire",
+      "position": {
+        "lat": "5.393807938803395",
+        "lng": "-4.072223051147471"
+      },
+      "id": 17
+    },
+    {
+      "cityName": "Abidjan",
+      "emoji": "🇨🇮",
+      "date": "2024-07-26T13:27:07.992Z",
+      "notes": "",
+      "country": "Cote d'Ivoire",
+      "position": {
+        "lat": "5.389027411880053",
+        "lng": "-4.079918861389161"
+      },
+      "id": 18
+    },
+    {
+      "cityName": "Abidjan",
+      "emoji": "🇨🇮",
+      "date": "2024-07-26T13:33:30.963Z",
+      "notes": "",
+      "country": "Cote d'Ivoire",
+      "position": {
+        "lat": "5.460759535138735",
+        "lng": "-4.103221893310548"
+      },
+      "id": 20
+    },
+    {
+      "cityName": "Aneho",
+      "emoji": "🇧🇯",
+      "date": "2024-07-26T13:33:57.746Z",
+      "notes": "",
+      "country": "Benin",
+      "position": {
+        "lat": "6.244315907853541",
+        "lng": "1.6589355468750002"
+      },
+      "id": 21
+    },
+    {
+      "cityName": "Abidjan",
+      "emoji": "🇨🇮",
+      "date": "2024-07-26T13:51:27.498Z",
+      "notes": "",
+      "country": "Cote d'Ivoire",
+      "position": {
+        "lat": "5.392167739555387",
+        "lng": "-4.075884819030763"
+      },
+      "id": 22
+    },
+    {
+      "cityName": "Ghana",
+      "emoji": "🇬🇭",
+      "date": "2024-07-26T13:51:38.858Z",
+      "notes": "",
+      "country": "Ghana",
+      "position": {
+        "lat": "5.5886511909594905",
+        "lng": "-0.03845214843750001"
+      },
+      "id": 23
+    },
+    {
+      "cityName": "Owo",
+      "emoji": "🇳🇬",
+      "date": "2024-07-26T13:51:44.464Z",
+      "notes": "",
+      "country": "Nigeria",
+      "position": {
+        "lat": "7.215350011351342",
+        "lng": "5.6964111328125"
+      },
+      "id": 24
+    },
+    {
+      "cityName": "Girei",
+      "emoji": "🇳🇬",
+      "date": "2024-07-26T13:51:49.914Z",
+      "notes": "",
+      "country": "Nigeria",
+      "position": {
+        "lat": "9.248514442730324",
+        "lng": "12.535400390625002"
+      },
+      "id": 25
     }
   ]
 }

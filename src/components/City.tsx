@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useCities } from "../context/CitiesContext";
 import { useEffect } from "react";
 import ButtonBack from "./ButtonBack";
+import Spinner from "./Spinner";
 
 const options = {
   day: "numeric",
@@ -17,14 +18,14 @@ const formatDate = (date: string) =>
 
 function City() {
   const { id } = useParams();
-  const { getCity, currentCity } = useCities() as TCitiesContext;
+  const { getCity, currentCity, isLoading } = useCities() as TCitiesContext;
 
   useEffect(() => {
     getCity(id);
-  }, [id]);
+  }, [id, getCity]);
 
   const { emoji, notes, cityName, date } = currentCity;
-
+  if (isLoading) return <Spinner />;
   return (
     <div className={styles.city}>
       <div className={styles.row}>
